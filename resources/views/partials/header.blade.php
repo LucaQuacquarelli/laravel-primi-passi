@@ -1,11 +1,27 @@
+@php
+    $links = [
+    [
+        "name" => "HOME",
+        "url" => "home"
+    ],
+    [
+        "name" => "DOCUMENTATION",
+        "url" => "documentation"
+    ],
+    [
+        "name" => "NEWS",
+        "url" => "news"
+    ]
+];
+@endphp
 <header>
         <div class="title">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Logo.min.svg/1200px-Logo.min.svg.png" alt="logo">
         </div>
         <div class="links">
-            <a href="home" class="btn">HOME</a>
-            <a href="documentation" class="btn">DOCUMENTATION</a>
-            <a href="news" class="btn">NEWS</a>
+            @foreach ($links as $link)
+            <a href="{{$link["url"]}}" class="btn">{{$link["name"]}}</a>
+            @endforeach
         </div>
 </header>
 
@@ -26,7 +42,7 @@
     }
 
     header img {
-        width: 15%;
+        width: 30%;
     }
 
     .links {
